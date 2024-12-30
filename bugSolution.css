@@ -1,0 +1,16 @@
+To correct the calculation, ensure that you're ordering the elements correctly within the `calc()` function.  For example:
+
+Instead of:
+```css
+width: calc(50% - 10px);
+```
+Which subtracts 10px from 50% of the *final* width (leading to inaccuracies), use:
+```css
+width: calc(50% - 10px);
+/* OR */
+width: calc( (100% - 20px) / 2 ); /* Example of another problematic usage*/
+/*Corrected*/
+width: calc(100% - 20px); /*Corrected*/
+
+```
+The corrected version will produce more reliable and predictable results.
